@@ -5,14 +5,32 @@ require('dotenv').config();
 const connectDb = async () => {
   try {
     console.log(process.env.MONGODB_URI);
-    mongoose.set('strictQuery', true);
+    // mongoose.set('strictQuery', true);
     await mongoose.connect(process.env.MONGODB_URI);
     console.log(`DB Connected Successfully`);
-  } catch (err) {
+  } 
+catch (err) {
     console.log("error connecting database",err);
     process.exit(0);
   }
 };
+
+connectDb();
+
+
+
+// const connectDb = async () => {
+//   try{
+//       console.log(process.env.MONGOURI);
+//       await mongoose.connect(process.env.MONGOURI);
+//       console.log('DB Connected Successfully');
+//   }
+//   catch(err) {
+//       console.log("error connecting database");
+//       console.error(err);
+//       process.exit(0);
+//   }
+// };
 
 connectDb();
 
